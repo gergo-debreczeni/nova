@@ -179,10 +179,10 @@ class VMOps(object):
                                        'root_vhd_size': root_vhd_size}
                     raise vmutils.HyperVException(error_msg)
                 elif root_vhd_internal_size > base_vhd_size:
-                    LOG.debug(_("Resizing VHD %(root_vhd_path)s to new "
+                    LOG.debug(_("Resizing VHD %(base_vhd_path)s to new "
                                 "size %(root_vhd_size)s"),
                               {'base_vhd_path': base_vhd_path,
-                               'root_vhd_path': root_vhd_path})
+                               'root_vhd_size': root_vhd_size})
                     self._vhdutils.resize_vhd(root_vhd_path, root_vhd_size)
         except Exception:
             with excutils.save_and_reraise_exception():
